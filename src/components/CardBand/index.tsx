@@ -16,3 +16,5 @@ export default function CardBand({ genres, name }: CardBandProps) {
     </>
   );
 }
+
+// teste de commit
