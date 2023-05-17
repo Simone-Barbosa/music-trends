@@ -5,7 +5,7 @@ interface CardBandProps {
 
 export default function CardBand({ genres, name }: CardBandProps) {
   return (
-    <>
+    <> 
       <h3>Artista</h3>
       <p>{name}</p>
       <p>

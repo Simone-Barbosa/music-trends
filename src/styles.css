@@ -1,0 +1,30 @@
+div{
+  width: 200px;
+  height: 210px;
+  color: white;
+  align-items: center;
+  /* display: inline-flex; */
+}
+
+#green {
+  background-color: green;
+}
+
+#purple {
+  background-color: purple;
+}
+
+#red{
+  background-color: red;
+}
+
+#title{
+  color: white;
+}
+
+body {
+  background-color: black;
+  background-position: top center;
+  background-size: 100% auto;
+  /* largura em 100% (responsivo a tam. tela) com auto p/ altura  */
+}
