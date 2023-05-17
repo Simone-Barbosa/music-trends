@@ -1,9 +1,9 @@
 div{
-  width: 200px;
-  height: 210px;
+  /* width: 200px; */
+  /* height: 210px; */
   color: white;
-  align-items: center;
-  /* display: inline-flex; */
+  /* align-items: center; */
+  display:inline-block;
 }
 
 #green {
@@ -18,6 +18,10 @@ div{
   background-color: red;
 }
 
+#orange{
+  background-color: orange;
+}
+
 #title{
   color: white;
 }
@@ -25,6 +29,6 @@ div{
 body {
   background-color: black;
   background-position: top center;
-  background-size: 100% auto;
+  /* background-size: 100% auto; */
   /* largura em 100% (responsivo a tam. tela) com auto p/ altura  */
 }

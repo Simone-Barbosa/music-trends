@@ -6,7 +6,7 @@ function App() {
   // const [likes, setLikes] = useState<number>(0);
 
   return (
-    <>
+    <div id="orange">
       <h1 id="title">Music Trends</h1>
 
       <div id="purple">
@@ -21,7 +21,7 @@ function App() {
         <CardBand name="Legião Urbana" genres={["Rock", "MPB"]} />
       </div>
 
-    </>
+    </div>
   );
 }
 
