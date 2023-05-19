@@ -33,7 +33,6 @@ div.box1{
   font-size: large;
   font-weight: bold;
   text-align: center;
-  display:inline-block;
 }
 
 div.box2{
@@ -43,7 +42,6 @@ div.box2{
   font-size: large;
   font-weight: bold;
   text-align: center;
-  display:inline-block;
 }
 
 div.box3{
@@ -53,7 +51,6 @@ div.box3{
   font-size: large;
   font-weight: bold;
   text-align: center;
-  display:inline-block;
 }
 
 #green {
