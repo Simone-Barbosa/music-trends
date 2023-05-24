@@ -1,12 +1,48 @@
 .cardBandsSection {
   background-color: lightgreen;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(7, auto);
   justify-content: space-between;
-  padding: 20px;
+  width: 100%;
+  padding: 20px 0;
 }
 
 .homePageHeader {
-  background-color: darkblue;
+  background-color: black;
   display: flex;
   justify-content: center;
+  width: 100%;
+}
+
+.container{
+  width: 100%;
+
+}
+
+@media screen and (max-width: 1500px){
+  .cardBandsSection{
+    grid-template-columns: repeat(6, auto);
+
+  }
+}
+
+@media screen and (max-width: 1280px){
+  .cardBandsSection{
+    grid-template-columns: repeat(5, auto);
+
+  }
+}
+
+@media screen and (max-width: 1080px){
+  .cardBandsSection{
+    grid-template-columns: repeat(4, auto);
+
+  }
+}
+
+@media screen and (max-width: 880px){
+  .cardBandsSection{
+    grid-template-columns: repeat(3, auto);
+
+  }
 }

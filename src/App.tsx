@@ -18,13 +18,14 @@ interface Artist {
 function App() {
   const [artists, setArtists] = useState<Artist[]>([]);
 
+
   async function getArtists() {
     const response = await axios({
       method: "get",
-      url: "https://api.spotify.com/v1/search?q=genre%3Arock&type=artist&market=BR&limit=10&offset=0",
+      url: "https://api.spotify.com/v1/search?q=genre%3Arock&type=artist&market=BR&limit=15&offset=0",
       headers: {
         Authorization:
-          "Bearer BQCdGWd-CCVSvlf5mCsQpN_aDCToVy-MHVRmZivGl_T-7UGaQm-gdZ8RrWYtJ2Go-M2KjVazUV69wjwCqRKP17bRDv9RYGi3WPNgIo7xAt_jlQ8tf9g",
+          "Bearer BQBNTdrx-IYRh2cer1Gt-J34PGzoldFzhYfIvXKjH-y8_ztvhTSU4npiuoZsrHnEuIIYjRGS8cAwmwU4bGOSjDHOqgvSo-UKqe-2RVkKoEE8e1E6tiQ",
       },
     });
     setArtists(response.data.artists.items);
@@ -36,7 +37,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <header className="homePageHeader">
         <h1 className="title">Music Trends</h1>
       </header>
@@ -52,7 +53,7 @@ function App() {
           );
         })}
       </section>
-    </>
+    </div>
   );
 }
 

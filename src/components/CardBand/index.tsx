@@ -15,10 +15,10 @@ export default function CardBand({
   return (
     <div
       className="cardBox"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      // style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <h3>Artista</h3>
       <p>{name}</p>
+      <img src= {backgroundImage} alt={`${name} cover`} width={'50%'} height={'50%'}/>
       <p>
         {genres.map((genre) => {
           return <span>{genre} - </span>;
