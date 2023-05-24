@@ -1,17 +1,18 @@
 
 .cardBox{
   width: 230px;
-  height: 220px;
-  color: white;
-  font-size: large;
+  height: 300px;
+  color:purple;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   border: 2px solid black;
   border-radius: 10px;
+  background-color: blue;
 }
 
 
-#title{
+.title{
   color: white;
 }
 

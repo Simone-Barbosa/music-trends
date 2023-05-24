@@ -3,8 +3,20 @@ import CardBand from "./components/CardBand";
 import "./general-styles.css";
 import axios from "axios";
 
+interface Artist {
+  id?: string;
+  name: string;
+  genres: string[];
+  backgroundColor?: string;
+  images: {
+    height: number;
+    url: string;
+    width: number;
+  }[];
+}
+
 function App() {
-  const [artists, setArtists] = useState([]);
+  const [artists, setArtists] = useState<Artist[]>([]);
 
   async function getArtists() {
     const response = await axios({
@@ -12,48 +24,30 @@ function App() {
       url: "https://api.spotify.com/v1/search?q=genre%3Arock&type=artist&market=BR&limit=10&offset=0",
       headers: {
         Authorization:
-          "Bearer BQDOuT5FxH3ffbxcRrzeEwRdLzBqHDEXidvKL6FBCcXOOr9J3zb9fmu3iGrsIA8GAZkzxxxyY78CsLb7qWujSnGsDIdKiXFCdgEMC5el5hVxpO7TLNb_",
+          "Bearer BQCdGWd-CCVSvlf5mCsQpN_aDCToVy-MHVRmZivGl_T-7UGaQm-gdZ8RrWYtJ2Go-M2KjVazUV69wjwCqRKP17bRDv9RYGi3WPNgIo7xAt_jlQ8tf9g",
       },
     });
-    console.log(response);
+    setArtists(response.data.artists.items);
+    
   }
 
   useEffect(() => {
     getArtists();
-    console.log("Executou useEffect");
   }, []);
-
-  const artistTest = [
-    {
-      name: "Deep Purple",
-      genres: ["Rock Clássico", "Hard Rock"],
-      backgroundColor: "green",
-    },
-    {
-      name: "Péricles",
-      genres: ["Pagode", "Samba"],
-      backgroundColor: "purple",
-    },
-    {
-      name: "Legião Urbana",
-      genres: ["Rock", "nacional"],
-      backgroundColor: "blue",
-    },
-  ];
 
   return (
     <>
       <header className="homePageHeader">
-        <h1>Music Trends</h1>
+        <h1 className="title">Music Trends</h1>
       </header>
 
       <section className="cardBandsSection">
-        {artistTest.map((artist) => {
+        {artists.map((artist) => {
           return (
             <CardBand
               name={artist.name}
               genres={artist.genres}
-              backgroundColor={artist.backgroundColor}
+              backgroundImage={artist.images[1].url}
             />
           );
         })}

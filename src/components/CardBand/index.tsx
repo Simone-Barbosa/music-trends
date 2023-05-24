@@ -3,16 +3,20 @@ import "./card-band-styles.css";
 interface CardBandProps {
   name: string;
   genres: string[];
-  backgroundColor: string;
+  backgroundColor?: string;
+  backgroundImage: string;
 }
 
 export default function CardBand({
   genres,
   name,
-  backgroundColor,
+  backgroundImage,
 }: CardBandProps) {
   return (
-    <div className="cardBox" style={{ backgroundColor: backgroundColor }}>
+    <div
+      className="cardBox"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <h3>Artista</h3>
       <p>{name}</p>
       <p>
