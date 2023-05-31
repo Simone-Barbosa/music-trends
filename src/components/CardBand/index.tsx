@@ -12,18 +12,23 @@ export default function CardBand({
   name,
   backgroundImage,
 }: CardBandProps) {
+
+  const limitedGenre = genres.slice(0,2);
+
   return (
     <div
       className="cardBox"
-      // style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <p>{name}</p>
-      <img src= {backgroundImage} alt={`${name} cover`} width={'50%'} height={'50%'}/>
-      <p>
-        {genres.map((genre) => {
-          return <span>{genre} - </span>;
+      <p className ="name"> {name}</p>
+
+      <img src= {backgroundImage} alt={`${name} cover`} width={'90%'} height={'60%'}/>
+
+      <p className="genres">
+        {limitedGenre.map((genre) => {
+          return <span>{genre} <br/> </span>;
         })}
       </p>
+
     </div>
   );
 }
