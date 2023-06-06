@@ -1,7 +1,7 @@
 .cardBandsSection {
     background-color: rgb(225, 223, 223);
     display: grid;
-    grid-template-columns: repeat(7, auto);
+    grid-template-columns: repeat(5, auto);
     justify-content: space-around;
     width: 100%;
     padding: 20px 0;
@@ -19,7 +19,7 @@
   .container{
     width: 100%;
   }
-  
+ 
   @media screen and (max-width: 1500px){
     .cardBandsSection{
       grid-template-columns: repeat(5, auto);
@@ -27,7 +27,7 @@
     }
   }
   
-  @media screen and (max-width: 1280px){
+  @media screen and (max-width: 1380px){
     .cardBandsSection{
       grid-template-columns: repeat(4, auto);
   
@@ -48,7 +48,7 @@
     }
   }
   
-  @media screen and (max-width: 680px){
+  @media screen and (max-width: 580px){
     .cardBandsSection{
       grid-template-columns: repeat(1, auto);
   

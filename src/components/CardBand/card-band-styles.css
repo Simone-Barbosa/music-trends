@@ -14,13 +14,13 @@
 }
 
 .name{
-  color: purple;
+  color: white;
   font-size: 18px;
   font-style: italic;
 }
 
 .genres{
-  color: cyan;
+  color: white;
   font-size: 15px;
   font-weight: lighter;
 }
