@@ -26,7 +26,7 @@ export default function HomePage() {
       url: "https://api.spotify.com/v1/search?q=genre%3Asoul&type=artist&market=BR&limit=21&offset=0",
       headers: {
         Authorization:
-          "Bearer BQBsIixr4KdulqvdPKOWrAl1bTOlAQrxVAWcCr3gWVt5AxpI6w2kWmL0_kzaZQjLdcwxJ9m1ASEriSjRpEUvF3Idtim0vN8vTnBcxDnPrcaR2fjPpzI",
+          `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
       },
     });
     setArtists(response.data.artists.items);
