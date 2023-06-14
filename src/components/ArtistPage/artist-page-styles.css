@@ -1,4 +1,73 @@
-.title{
-    background-color: burlywood;
-    color: blue;
+.titleArtist {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.subTitle {
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+.loadingPage {
+    background-color: rgb(225, 223, 223);
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.dataArtistSection {
+    background-color: rgb(225, 223, 223);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-around;
+    /* vertical-align: middle; */
+    width: 100%;
+    padding: 20px 0;
+
+}
+
+.cardDataArtist {
+    color: white;
+    min-width: 200px;
+    min-height: 180px;
+    font-size: 18px;
+    text-align: center;
+    vertical-align: middle;
+    border: 5px solid black;
+    border-radius: 10px;
+    background-color: rgb(42, 39, 39);
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.cardTrackArtist {
+    color: white;
+    min-width: 210px;
+    min-height: 180px;
+    font-size: 15px;
+    /* text-align: left; */
+    /* vertical-align: middle; */
+    border: 5px solid black;
+    border-radius: 10px;
+    background-color: rgb(42, 39, 39);
+    /* background-size: cover; */
+    /* margin-bottom: 20px; */
+}
+
+.cardSection {
+    vertical-align: middle;
+
 }

@@ -19,11 +19,11 @@ interface Artist {
 export default function HomePage() {
   const [artists, setArtists] = useState<Artist[]>([]);
   const navigate = useNavigate();
-
+  //genre composto: power%20metal / hard%20rock
   async function getArtists() {
     const response = await axios({
       method: "get",
-      url: "https://api.spotify.com/v1/search?q=genre%3Asoul&type=artist&market=BR&limit=21&offset=0",
+      url: "https://api.spotify.com/v1/search?q=genre%3Apower&type=artist&market=BR&limit=25&offset=0",
       headers: {
         Authorization:
           `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
@@ -50,6 +50,7 @@ export default function HomePage() {
         {artists.map((artist) => {
           return (
             <CardBand
+              key={artist.id}
               name={artist.name}
               genres={artist.genres}
               backgroundImage={artist.images[1].url}
