@@ -1,73 +1,128 @@
-.titleArtist {
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.subTitle {
-    color: white;
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
 .container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(225, 223, 223);
+}
+
+.container h1 {
+    background-color: slategrey;
 }
 
 .loadingPage {
-    background-color: rgb(225, 223, 223);
     font-size: 25px;
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-
-.dataArtistSection {
-    background-color: rgb(225, 223, 223);
+.containerArtist{
+    /* background-color: brown; */
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    justify-content: space-around;
-    /* vertical-align: middle; */
-    width: 100%;
-    padding: 20px 0;
+    grid-template-columns: 60% 40%;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px;
 
+}
+
+.containerPhoto {
+    /* background-color: pink; */
+    max-width: 100%;
+    padding: 10px;
+}
+
+.containerPhoto img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 30px;
+}
+
+.containerData {
+    /* background-color: aquamarine; */
+    max-width: 100%;
+    padding: 10px;
+}
+
+.containerData h2{
+    color: cadetblue;
+    font-size: 25px;
 }
 
 .cardDataArtist {
-    color: white;
-    min-width: 200px;
-    min-height: 180px;
+    color: slategrey;
     font-size: 18px;
+    max-width: 300px;
+    min-height: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid black;
+    border-radius: 10px;
+    background-color: rgb(42, 39, 39);
+    background-size: cover; 
+}
+
+.containerMusics {
+    /* background-color: green; */
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5,300px);
+    justify-content: space-around; 
+    padding: 10px;
+}
+
+.cardTracks {
+    color: slategrey;
+    font-size: 18px;
+    border: 5px solid black;
+    border-radius: 10px;
+    background-color: rgb(42, 39, 39);
+    max-width: 95%;
+    min-height: 250px;
     text-align: center;
-    vertical-align: middle;
-    border: 5px solid black;
-    border-radius: 10px;
-    background-color: rgb(42, 39, 39);
-    background-size: cover;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
-.cardTrackArtist {
-    color: white;
-    min-width: 210px;
-    min-height: 180px;
-    font-size: 15px;
-    /* text-align: left; */
-    /* vertical-align: middle; */
-    border: 5px solid black;
-    border-radius: 10px;
-    background-color: rgb(42, 39, 39);
-    /* background-size: cover; */
-    /* margin-bottom: 20px; */
+.cardTracks h4{
+    color: cadetblue;
+    font-size: 25px;
 }
 
-.cardSection {
-    vertical-align: middle;
-
-}
+@media screen and (max-width: 1500px){
+    .containerMusics{
+      grid-template-columns: repeat(5, auto);
+  
+    }
+  }
+  
+  @media screen and (max-width: 1380px){
+    .containerMusics{
+      grid-template-columns: repeat(4, auto);
+  
+    }
+  }
+  
+  @media screen and (max-width: 1080px){
+    .containerMusics{
+      grid-template-columns: repeat(3, auto);
+  
+    }
+  }
+  
+  @media screen and (max-width: 880px){
+    .containerMusics{
+      grid-template-columns: repeat(2, auto);
+  
+    }
+  }
+  
+  @media screen and (max-width: 580px){
+    .containerMusics{
+      grid-template-columns: repeat(1, auto);
+  
+    }
+  }

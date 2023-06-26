@@ -2,6 +2,8 @@ import axios from "axios";
 import "./artist-page-styles.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { FirstContext } from "../../App";
+import React from "react";
 
 interface ArtistProps {
   name: string;
@@ -16,7 +18,6 @@ interface ArtistProps {
 }
 
 interface ArtistTracksProps {
-
   topTracks: {
     name: string;
     popularity: number;
@@ -38,8 +39,7 @@ export default function ArtistPage() {
       method: "get",
       url: `https://api.spotify.com/v1/artists/${id}`,
       headers: {
-        Authorization:
-          `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
+        Authorization: `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
       },
     });
 
@@ -57,87 +57,84 @@ export default function ArtistPage() {
       method: "get",
       url: `https://api.spotify.com/v1/artists/${id}/top-tracks/?market=BR`,
       headers: {
-        Authorization:
-          `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
+        Authorization: `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
       },
     });
 
     setTracks({
       topTracks: response.data.tracks,
     });
-
   }
 
   useEffect(() => {
     getArtistData();
-  }, []);
-
-  useEffect(() => {
     getArtistTracks();
   }, []);
 
+  const valueContext = React.useContext(FirstContext); //hook
+
   return (
     <>
-      {!artist ? <p className="loadingPage" >Carregando página do artista...</p> :
+      {!artist ? (
+        <p className="loadingPage">Carregando página do artista...</p>
+      ) : (
         <div className="container">
+          <p>| {valueContext} | </p>
 
-          <header className="titleArtist">
-            <h1>{artist?.name}</h1>
-          </header>
+          <h1>{artist.name}</h1>
 
-          <div className="dataArtistSection">
+          <div className="containerArtist">
 
-            <div>
-              {/* <img src={artist?.artistPhoto.url} width={'70%'} height={'70%'} /> */}
+            <div className="containerPhoto">
+
               <img src={artist?.artistPhoto.url} />
 
             </div>
 
-            <div>
+            <div className="containerData">
 
               <div className="cardDataArtist">
-                <p className="subTitle"> Polularidade</p>
+                <h2> Polularidade</h2>
                 <p> {artist?.popularity} </p>
               </div>
 
               <div className="cardDataArtist">
-                <p className="subTitle">Seguidores</p>
+                <h2>Seguidores</h2>
                 <p>{artist?.totalFollowers}</p>
               </div>
 
               <div className="cardDataArtist">
-                <p className="subTitle">Gênero musical</p>
-
-                <p>{artist?.genres.map((genre) => {
-                  return <span> {genre} <br /> </span>
-                }
-                )}</p>
+                <h2>Gênero musical</h2>
+                <p>
+                  {artist?.genres.map((genre) => {
+                    return <span> {genre} , </span>;
+                  })}
+                </p>
               </div>
 
             </div>
 
-            <div className="cardTrackArtist">
-              <p className="subTitle">Top Músicas</p>
+          </div>
 
-              <ul>{tracks?.topTracks.map((track) => {
-                return <li key={track.name}>
-                  {track.name} | Rank: {track.popularity}
-                  <br />
-                  Album: {track.album.name}
-                  <br />
-                  Lançado: {track.album.release_date}
-                  <br />
-                  <br />
-                </li>
-              }
-              )}</ul>
-            </div>
+          <h1>Top Músicas</h1>
+
+          <div className="containerMusics">
+
+            {tracks?.topTracks.map((track) => {
+              return (
+                <div className="cardTracks" key={track.name}>
+                  <h4>{track.name}</h4>
+                  <p>Rank: {track.popularity}</p>
+                  <p> Album: {track.album.name}</p>
+                  <p> Lançado: {track.album.release_date}</p>
+                </div>
+              );
+            })}
 
           </div>
 
-        </div >
-      }
+        </div>
+      )}
     </>
-
   );
 }

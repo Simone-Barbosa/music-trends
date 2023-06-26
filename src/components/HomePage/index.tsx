@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CardBand from "../CardBand";
-import './home-page.css'
+import "./home-page.css";
 import { useNavigate } from "react-router-dom";
+import { FirstContext } from "../../App";
 
 interface Artist {
   id: string;
@@ -25,8 +26,7 @@ export default function HomePage() {
       method: "get",
       url: "https://api.spotify.com/v1/search?q=genre%3Apower&type=artist&market=BR&limit=25&offset=0",
       headers: {
-        Authorization:
-          `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
+        Authorization: `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
       },
     });
     setArtists(response.data.artists.items);
@@ -41,24 +41,27 @@ export default function HomePage() {
   };
 
   return (
-    <div className="container">
-      <header className="homePageHeader">
-        <h1>Music Trends</h1>
-      </header>
-
-      <section className="cardBandsSection">
-        {artists.map((artist) => {
-          return (
-            <CardBand
-              key={artist.id}
-              name={artist.name}
-              genres={artist.genres}
-              backgroundImage={artist.images[1].url}
-              onClick={() => clickCardBand(artist.id)}
-            />
-          );
-        })}
-      </section>
-    </div>
+    <FirstContext.Consumer>
+      {(value) => (
+        <>
+          <div className="container">
+            <p>{value}</p>
+            <section className="cardBandsSection">
+              {artists.map((artist) => {
+                return (
+                  <CardBand
+                    key={artist.id}
+                    name={artist.name}
+                    genres={artist.genres}
+                    backgroundImage={artist.images[1].url}
+                    onClick={() => clickCardBand(artist.id)}
+                  />
+                );
+              })}
+            </section>
+          </div>
+        </>
+      )}
+    </FirstContext.Consumer>
   );
 }
