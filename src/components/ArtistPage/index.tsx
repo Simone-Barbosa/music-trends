@@ -2,8 +2,6 @@ import axios from "axios";
 import "./artist-page-styles.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { FirstContext } from "../../App";
-import React from "react";
 
 interface ArtistProps {
   name: string;
@@ -71,28 +69,20 @@ export default function ArtistPage() {
     getArtistTracks();
   }, []);
 
-  const valueContext = React.useContext(FirstContext); //hook
-
   return (
     <>
       {!artist ? (
         <p className="loadingPage">Carregando página do artista...</p>
       ) : (
         <div className="container">
-          <p>| {valueContext} | </p>
-
           <h1>{artist.name}</h1>
 
           <div className="containerArtist">
-
             <div className="containerPhoto">
-
               <img src={artist?.artistPhoto.url} />
-
             </div>
 
             <div className="containerData">
-
               <div className="cardDataArtist">
                 <h2> Polularidade</h2>
                 <p> {artist?.popularity} </p>
@@ -111,15 +101,12 @@ export default function ArtistPage() {
                   })}
                 </p>
               </div>
-
             </div>
-
           </div>
 
           <h1>Top Músicas</h1>
 
           <div className="containerMusics">
-
             {tracks?.topTracks.map((track) => {
               return (
                 <div className="cardTracks" key={track.name}>
@@ -130,9 +117,7 @@ export default function ArtistPage() {
                 </div>
               );
             })}
-
           </div>
-
         </div>
       )}
     </>

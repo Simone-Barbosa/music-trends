@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import CardBand from "../CardBand";
 import "./home-page.css";
 import { useNavigate } from "react-router-dom";
-import { FirstContext } from "../../App";
+import { useUserPreferences } from "../../context/userPreferences.context";
 
 interface Artist {
   id: string;
@@ -24,7 +24,7 @@ export default function HomePage() {
   async function getArtists() {
     const response = await axios({
       method: "get",
-      url: "https://api.spotify.com/v1/search?q=genre%3Apower&type=artist&market=BR&limit=25&offset=0",
+      url: "https://api.spotify.com/v1/search?q=genre%3Ahard%20rock&type=artist&market=BR&limit=25&offset=0",
       headers: {
         Authorization: `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
       },
@@ -40,13 +40,31 @@ export default function HomePage() {
     navigate(`/artist/${encodeURIComponent(artistID)}`);
   };
 
+  const{darkMode, setDarkMode} = useUserPreferences()
+
+  function getStyleMode(){
+
+    setDarkMode('light');
+
+    if(darkMode === "light"){
+      return ({background: "rgb(225, 223, 223)"})
+    }
+
+    if(darkMode === "dark"){
+      return ({background: "black"})
+    }
+
+    return({background: "white"})
+
+  }
+
+  //sintaxe style: <section className="cardBandsSection" style={{background: "green"}}>
+
   return (
-    <FirstContext.Consumer>
-      {(value) => (
         <>
+        {darkMode}
           <div className="container">
-            <p>{value}</p>
-            <section className="cardBandsSection">
+            <section className="cardBandsSection" style={getStyleMode()}>
               {artists.map((artist) => {
                 return (
                   <CardBand
@@ -62,6 +80,3 @@ export default function HomePage() {
           </div>
         </>
       )}
-    </FirstContext.Consumer>
-  );
-}

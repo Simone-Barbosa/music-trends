@@ -1,16 +1,14 @@
 import Router from "./routes";
 import Header from "./components/Header";
-import React from "react";
-
-export const FirstContext = React.createContext("");
+import UserPreferencesProvider from "./context/userPreferences.context";
 
 function App() {
   return (
     <>
-      <FirstContext.Provider value = "Primeiro valor Context">
-      <Header />
-      <Router />
-      </FirstContext.Provider>
+      <UserPreferencesProvider>
+        <Header />
+        <Router />
+      </UserPreferencesProvider>
     </>
   );
 }
