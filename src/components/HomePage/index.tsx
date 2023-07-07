@@ -4,6 +4,7 @@ import CardBand from "../CardBand";
 import "./home-page.css";
 import { useNavigate } from "react-router-dom";
 import { useUserPreferences } from "../../context/userPreferences.context";
+import { getStyleMode } from "../../shared/colors";
 
 interface Artist {
   id: string;
@@ -40,43 +41,25 @@ export default function HomePage() {
     navigate(`/artist/${encodeURIComponent(artistID)}`);
   };
 
-  const{darkMode, setDarkMode} = useUserPreferences()
-
-  function getStyleMode(){
-
-    setDarkMode('light');
-
-    if(darkMode === "light"){
-      return ({background: "rgb(225, 223, 223)"})
-    }
-
-    if(darkMode === "dark"){
-      return ({background: "black"})
-    }
-
-    return({background: "white"})
-
-  }
-
-  //sintaxe style: <section className="cardBandsSection" style={{background: "green"}}>
+  const { darkMode, setDarkMode } = useUserPreferences()
 
   return (
-        <>
-        {darkMode}
-          <div className="container">
-            <section className="cardBandsSection" style={getStyleMode()}>
-              {artists.map((artist) => {
-                return (
-                  <CardBand
-                    key={artist.id}
-                    name={artist.name}
-                    genres={artist.genres}
-                    backgroundImage={artist.images[1].url}
-                    onClick={() => clickCardBand(artist.id)}
-                  />
-                );
-              })}
-            </section>
-          </div>
-        </>
-      )}
+    <>
+      <div className="container">
+        <section className="cardBandsSection" style={{ background: getStyleMode(darkMode, 'background_music_trends'), color: getStyleMode(darkMode, 'font_color_music_trends') }}>
+          {artists.map((artist) => {
+            return (
+              <CardBand
+                key={artist.id}
+                name={artist.name}
+                genres={artist.genres}
+                backgroundImage={artist.images[1].url}
+                onClick={() => clickCardBand(artist.id)}
+              />
+            );
+          })}
+        </section>
+      </div>
+    </>
+  )
+}

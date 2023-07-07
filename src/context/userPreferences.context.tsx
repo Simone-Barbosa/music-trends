@@ -1,7 +1,9 @@
 import { createContext, useContext, useState } from "react";
 
+export type DarkMode = 'dark' | 'light'
+
 interface UserPreferencesContextType {
-  darkMode: string;
+  darkMode: DarkMode;
   setDarkMode: any;
 }
 
@@ -10,7 +12,7 @@ export const UserPreferencesContext = createContext(
 );
 
 export default function UserPreferencesProvider({ children }: any) {
-  const [darkMode, setDarkMode] = useState<string>("light");
+  const [darkMode, setDarkMode] = useState<DarkMode>("light");
 
   return (
     <UserPreferencesContext.Provider value={{ darkMode, setDarkMode }}>
