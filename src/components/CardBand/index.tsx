@@ -1,3 +1,5 @@
+import { usePreferencesUser } from "../../context/userPreferences.context";
+import { getStyleMode } from "../../shared/colors";
 import "./card-band-styles.css";
 
 interface CardBandProps {
@@ -16,13 +18,19 @@ export default function CardBand({
 
   const limitedGenre = genres.slice(0, 2);
 
+  const { darkMode } = usePreferencesUser();
+
   return (
-    <div className="cardBox" onClick={onClick}>
-      <p className="name"> {name}</p>
+    <div className="cardBox" style={{
+      background: getStyleMode(darkMode, "background_card_band"),
+      border: getStyleMode(darkMode, "border_card_band")
+    }}
+      onClick={onClick}>
+      <p> {name}</p>
 
       <img src={backgroundImage} alt={`${name} cover`} width={'90%'} height={'60%'} />
 
-      <p className="genres">
+      <p>
         {limitedGenre.map((genre) => {
           return <span>{genre} <br /> </span>;
         })}

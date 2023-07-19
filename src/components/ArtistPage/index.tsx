@@ -2,6 +2,8 @@ import axios from "axios";
 import "./artist-page-styles.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { usePreferencesUser } from "../../context/userPreferences.context";
+import { getStyleMode } from "../../shared/colors";
 
 interface ArtistProps {
   name: string;
@@ -69,12 +71,17 @@ export default function ArtistPage() {
     getArtistTracks();
   }, []);
 
+  const { darkMode } = usePreferencesUser()
+
   return (
     <>
       {!artist ? (
         <p className="loadingPage">Carregando página do artista...</p>
       ) : (
-        <div className="container">
+        <div className="container" style={{
+          background: getStyleMode(darkMode, "background_music_trends"),
+          color: getStyleMode(darkMode, "font_color_music_trends")
+        }}>
           <h1>{artist.name}</h1>
 
           <div className="containerArtist">
@@ -83,17 +90,26 @@ export default function ArtistPage() {
             </div>
 
             <div className="containerData">
-              <div className="cardDataArtist">
+              <div className="cardDataArtist" style={{
+                background: getStyleMode(darkMode, "background_card_band"),
+                border: getStyleMode(darkMode, "border_card_band")
+              }}>
                 <h2> Polularidade</h2>
                 <p> {artist?.popularity} </p>
               </div>
 
-              <div className="cardDataArtist">
+              <div className="cardDataArtist" style={{
+                background: getStyleMode(darkMode, "background_card_band"),
+                border: getStyleMode(darkMode, "border_card_band")
+              }}>
                 <h2>Seguidores</h2>
                 <p>{artist?.totalFollowers}</p>
               </div>
 
-              <div className="cardDataArtist">
+              <div className="cardDataArtist" style={{
+                background: getStyleMode(darkMode, "background_card_band"),
+                border: getStyleMode(darkMode, "border_card_band")
+              }}>
                 <h2>Gênero musical</h2>
                 <p>
                   {artist?.genres.map((genre) => {
@@ -109,7 +125,10 @@ export default function ArtistPage() {
           <div className="containerMusics">
             {tracks?.topTracks.map((track) => {
               return (
-                <div className="cardTracks" key={track.name}>
+                <div className="cardTracks" style={{
+                  background: getStyleMode(darkMode, "background_card_band"),
+                  border: getStyleMode(darkMode, "border_card_band")
+                }} key={track.name}>
                   <h4>{track.name}</h4>
                   <p>Rank: {track.popularity}</p>
                   <p> Album: {track.album.name}</p>

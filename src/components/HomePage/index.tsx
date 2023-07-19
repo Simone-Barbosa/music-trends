@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import CardBand from "../CardBand";
 import "./home-page.css";
 import { useNavigate } from "react-router-dom";
-import { useUserPreferences } from "../../context/userPreferences.context";
+import { usePreferencesUser } from "../../context/userPreferences.context";
 import { getStyleMode } from "../../shared/colors";
 
 interface Artist {
@@ -25,7 +25,7 @@ export default function HomePage() {
   async function getArtists() {
     const response = await axios({
       method: "get",
-      url: "https://api.spotify.com/v1/search?q=genre%3Ahard%20rock&type=artist&market=BR&limit=25&offset=0",
+      url: "https://api.spotify.com/v1/search?q=genre%3Apower%20metal&type=artist&market=BR&limit=25&offset=0",
       headers: {
         Authorization: `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
       },
@@ -41,12 +41,15 @@ export default function HomePage() {
     navigate(`/artist/${encodeURIComponent(artistID)}`);
   };
 
-  const { darkMode, setDarkMode } = useUserPreferences()
+  const { darkMode } = usePreferencesUser()
 
   return (
     <>
       <div className="container">
-        <section className="cardBandsSection" style={{ background: getStyleMode(darkMode, 'background_music_trends'), color: getStyleMode(darkMode, 'font_color_music_trends') }}>
+        <section className="cardBandsSection" style={{
+          background: getStyleMode(darkMode, 'background_music_trends'),
+          color: getStyleMode(darkMode, 'font_color_music_trends')
+        }}>
           {artists.map((artist) => {
             return (
               <CardBand

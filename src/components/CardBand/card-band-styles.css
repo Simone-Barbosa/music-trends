@@ -1,27 +1,11 @@
-
 .cardBox{
   width: 250px;
   min-height: 300px;
-  /* color:white; */
-  font-weight: bold;
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
-  border: 5px solid black;
+  border: 5px solid;
   border-radius: 10px;
-  background-color: rgb(42, 39, 39);
   background-size: cover;
   margin-bottom: 20px;
-}
-
-.name{
-  color: white;
-  font-size: 18px;
-  font-style: italic;
-}
-
-.genres{
-  color: white;
-  font-size: 15px;
-  font-weight: lighter;
 }
 
