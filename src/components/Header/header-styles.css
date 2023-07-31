@@ -1,6 +1,31 @@
 .homePageHeader {
-    font-size: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 70px;
+    height: 100px;
+    box-sizing: border-box;
+    align-items: center;
     width: 100%;
+  }
+
+  .homePageHeader a{
+    text-decoration: none !important;
+  }
+
+  .buttonDarkMode{
+    background: none;
+    border: none;   
+    cursor: pointer;
+  }
+
+  .homePageTitle{
+    font-size: 45px;
+    font-weight: bold;
+  }
+
+  .headerLinks{
+    font-size: 30px;
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
   }

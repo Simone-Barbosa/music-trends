@@ -44,25 +44,21 @@ export default function HomePage() {
   const { darkMode } = usePreferencesUser()
 
   return (
-    <>
-      <div className="container">
-        <section className="cardBandsSection" style={{
-          background: getStyleMode(darkMode, 'background_music_trends'),
-          color: getStyleMode(darkMode, 'font_color_music_trends')
-        }}>
-          {artists.map((artist) => {
-            return (
-              <CardBand
-                key={artist.id}
-                name={artist.name}
-                genres={artist.genres}
-                backgroundImage={artist.images[1].url}
-                onClick={() => clickCardBand(artist.id)}
-              />
-            );
-          })}
-        </section>
-      </div>
-    </>
+    <section className="cardBandsSection" style={{
+      background: getStyleMode(darkMode, 'background_music_trends'),
+      color: getStyleMode(darkMode, 'font_color_music_trends')
+    }}>
+      {artists.map((artist) => {
+        return (
+          <CardBand
+            key={artist.id}
+            name={artist.name}
+            genres={artist.genres}
+            backgroundImage={artist.images[1].url}
+            onClick={() => clickCardBand(artist.id)}
+          />
+        );
+      })}
+    </section>
   )
 }

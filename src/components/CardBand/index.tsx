@@ -23,7 +23,7 @@ export default function CardBand({
   return (
     <div className="cardBox" style={{
       background: getStyleMode(darkMode, "background_card_band"),
-      border: getStyleMode(darkMode, "border_card_band")
+      borderColor: getStyleMode(darkMode, "border_card_band")
     }}
       onClick={onClick}>
       <p> {name}</p>
