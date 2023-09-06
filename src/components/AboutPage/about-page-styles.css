@@ -1,0 +1,36 @@
+.containerAbout{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    max-width: 100%;
+    max-height: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.Image {
+    max-width: 90%;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    /* padding: 10px; */
+}
+
+.boxAbout {
+    max-width: 100%;
+    padding: 10px;
+}
+
+
+.boxAbout h2{
+    color: cadetblue;
+    font-size: 25px;
+}
+
+.cardTextAbout {
+    font-size: 17px;
+    max-width: 700px;
+    min-height: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+}
