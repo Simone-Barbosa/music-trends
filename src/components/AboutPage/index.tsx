@@ -6,7 +6,6 @@ export default function PageAbout() {
 
     const { darkMode } = usePreferencesUser()
 
-
     return (
 
         <div className="containerAbout" style={{

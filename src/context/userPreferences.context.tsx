@@ -23,9 +23,6 @@ function checkStyleModeLocalStorage(): DarkMode {
 
 }
 
-const currentMode = localStorage.getItem('styleMode');
-console.log('preferenes provider = ', currentMode);
-
 export default function UserPreferencesProvider({ children }: any) {
 
   const [darkMode, setDarkMode] = useState<DarkMode>(checkStyleModeLocalStorage());
@@ -39,8 +36,5 @@ export default function UserPreferencesProvider({ children }: any) {
 
 export function usePreferencesUser() {
   const { darkMode, setDarkMode } = useContext(UserPreferencesContext);
-
-  console.log('usePreferences = ', darkMode);
-
   return { darkMode, setDarkMode };
 }

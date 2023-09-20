@@ -25,7 +25,7 @@ export default function HomePage() {
   async function getArtists() {
     const response = await axios({
       method: "get",
-      url: "https://api.spotify.com/v1/search?q=genre%3Apower%20metal&type=artist&market=BR&limit=25&offset=0",
+      url: "https://api.spotify.com/v1/search?q=genre%3Apop&type=artist&market=BR&limit=25&offset=0",
       headers: {
         Authorization: `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
       },
