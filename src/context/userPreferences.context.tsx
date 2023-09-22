@@ -1,40 +1,31 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from 'react';
 
-export type DarkMode = 'dark' | 'light'
+export type DarkMode = 'dark' | 'light';
 
 interface UserPreferencesContextType {
-  darkMode: DarkMode;
-  setDarkMode: any;
+    darkMode: DarkMode;
+    setDarkMode: any;
 }
 
-export const UserPreferencesContext = createContext(
-  {} as UserPreferencesContextType
-);
+export const UserPreferencesContext = createContext({} as UserPreferencesContextType);
 
 function checkStyleModeLocalStorage(): DarkMode {
+    const currentMode: DarkMode = localStorage.getItem('styleMode') as DarkMode;
 
-  const currentMode: DarkMode = localStorage.getItem('styleMode') as DarkMode;
+    if (!currentMode) {
+        return 'light';
+    }
 
-  if(!currentMode){
-    return 'light'
-  }
-
-  return currentMode;
-
+    return currentMode;
 }
 
 export default function UserPreferencesProvider({ children }: any) {
+    const [darkMode, setDarkMode] = useState<DarkMode>(checkStyleModeLocalStorage());
 
-  const [darkMode, setDarkMode] = useState<DarkMode>(checkStyleModeLocalStorage());
-
-  return (
-    <UserPreferencesContext.Provider value={{ darkMode, setDarkMode }}>
-      {children}
-    </UserPreferencesContext.Provider>
-  );
+    return <UserPreferencesContext.Provider value={{ darkMode, setDarkMode }}>{children}</UserPreferencesContext.Provider>;
 }
 
 export function usePreferencesUser() {
-  const { darkMode, setDarkMode } = useContext(UserPreferencesContext);
-  return { darkMode, setDarkMode };
+    const { darkMode, setDarkMode } = useContext(UserPreferencesContext);
+    return { darkMode, setDarkMode };
 }

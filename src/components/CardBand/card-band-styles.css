@@ -1,12 +1,11 @@
-.cardBox{
-  width: 250px;
-  min-height: 300px;
-  text-align: center;
-  font-family: 'Courier New', Courier, monospace;
-  border-style: solid;
-  border-width: 5px;
-  border-radius: 10px;
-  background-size: cover;
-  margin-bottom: 20px;
+.cardBox {
+    width: 250px;
+    min-height: 300px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    background-size: cover;
+    margin-bottom: 20px;
 }
-

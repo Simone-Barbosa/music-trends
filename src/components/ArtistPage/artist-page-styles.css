@@ -18,14 +18,13 @@
     width: 100%;
 }
 
-.containerArtist{
+.containerArtist {
     /* background-color: brown; */
     display: grid;
     grid-template-columns: 60% 40%;
     max-width: 100%;
     text-align: center;
     padding: 20px;
-
 }
 
 .containerPhoto {
@@ -46,7 +45,7 @@
     padding: 10px;
 }
 
-.containerData h2{
+.containerData h2 {
     color: cadetblue;
     font-size: 25px;
 }
@@ -60,15 +59,15 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
-    background-size: cover; 
+    background-size: cover;
 }
 
 .containerMusics {
     /* background-color: green; */
     max-width: 100%;
     display: grid;
-    grid-template-columns: repeat(5,300px);
-    justify-content: space-around; 
+    grid-template-columns: repeat(5, 300px);
+    justify-content: space-around;
     padding: 10px;
 }
 
@@ -80,46 +79,41 @@
     margin-bottom: 25px;
 }
 
-.cardTracks h4{
+.cardTracks h4 {
     color: cadetblue;
     font-size: 25px;
 }
 
-.cardTracks p{
-  font-size: 18px;
+.cardTracks p {
+    font-size: 18px;
 }
 
-@media screen and (max-width: 1500px){
-    .containerMusics{
-      grid-template-columns: repeat(5, auto);
-  
+@media screen and (max-width: 1500px) {
+    .containerMusics {
+        grid-template-columns: repeat(5, auto);
     }
-  }
-  
-  @media screen and (max-width: 1380px){
-    .containerMusics{
-      grid-template-columns: repeat(4, auto);
-  
+}
+
+@media screen and (max-width: 1380px) {
+    .containerMusics {
+        grid-template-columns: repeat(4, auto);
     }
-  }
-  
-  @media screen and (max-width: 1080px){
-    .containerMusics{
-      grid-template-columns: repeat(3, auto);
-  
+}
+
+@media screen and (max-width: 1080px) {
+    .containerMusics {
+        grid-template-columns: repeat(3, auto);
     }
-  }
-  
-  @media screen and (max-width: 880px){
-    .containerMusics{
-      grid-template-columns: repeat(2, auto);
-  
+}
+
+@media screen and (max-width: 880px) {
+    .containerMusics {
+        grid-template-columns: repeat(2, auto);
     }
-  }
-  
-  @media screen and (max-width: 580px){
-    .containerMusics{
-      grid-template-columns: repeat(1, auto);
-  
+}
+
+@media screen and (max-width: 580px) {
+    .containerMusics {
+        grid-template-columns: repeat(1, auto);
     }
-  }
+}

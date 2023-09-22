@@ -6,26 +6,26 @@
     box-sizing: border-box;
     align-items: center;
     width: 100%;
-  }
+}
 
-  .homePageHeader a{
+.homePageHeader a {
     text-decoration: none !important;
-  }
+}
 
-  .buttonDarkMode{
+.buttonDarkMode {
     background: none;
-    border: none;   
+    border: none;
     cursor: pointer;
-  }
+}
 
-  .homePageTitle{
+.homePageTitle {
     font-size: 45px;
     font-weight: bold;
-  }
+}
 
-  .headerLinks{
+.headerLinks {
     font-size: 30px;
     width: 10%;
     display: flex;
     justify-content: space-between;
-  }
+}

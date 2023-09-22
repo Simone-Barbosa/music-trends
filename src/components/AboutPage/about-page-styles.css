@@ -1,4 +1,4 @@
-.containerAbout{
+.containerAbout {
     display: grid;
     grid-template-columns: 50% 50%;
     max-width: 100%;
@@ -20,8 +20,7 @@
     padding: 10px;
 }
 
-
-.boxAbout h2{
+.boxAbout h2 {
     color: cadetblue;
     font-size: 25px;
 }
