@@ -1,10 +1,10 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import CardBand from '../CardBand';
 import './home-page.css';
 import { useNavigate } from 'react-router-dom';
 import { usePreferencesUser } from '../../context/userPreferences.context';
 import { getStyleMode } from '../../shared/colors';
+import { axiosInstance, getToken } from '../../axios';
 
 interface Artist {
     id: string;
@@ -23,17 +23,12 @@ export default function HomePage() {
     const navigate = useNavigate();
     //genre composto: power%20metal / hard%20rock
     async function getArtists() {
-        const response = await axios({
-            method: 'get',
-            url: 'https://api.spotify.com/v1/search?q=genre%3Apop&type=artist&market=BR&limit=25&offset=0',
-            headers: {
-                Authorization: `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
-            },
-        });
+        const response = await axiosInstance.get('search?q=genre%3Apop&type=artist&market=BR&limit=25&offset=0');
         setArtists(response.data.artists.items);
     }
 
     useEffect(() => {
+        getToken(); //para teste
         getArtists();
     }, []);
 

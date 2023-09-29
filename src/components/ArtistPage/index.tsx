@@ -1,9 +1,9 @@
-import axios from 'axios';
 import './artist-page-styles.css';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { usePreferencesUser } from '../../context/userPreferences.context';
 import { getStyleMode } from '../../shared/colors';
+import { axiosInstance } from '../../axios';
 
 interface ArtistProps {
     name: string;
@@ -35,13 +35,7 @@ export default function ArtistPage() {
     const [tracks, setTracks] = useState<ArtistTracksProps>();
 
     async function getArtistData() {
-        const response = await axios({
-            method: 'get',
-            url: `https://api.spotify.com/v1/artists/${id}`,
-            headers: {
-                Authorization: `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
-            },
-        });
+        const response = await axiosInstance.get(`artists/${id}`);
 
         setArtist({
             name: response.data.name,
@@ -53,13 +47,7 @@ export default function ArtistPage() {
     }
 
     async function getArtistTracks() {
-        const response = await axios({
-            method: 'get',
-            url: `https://api.spotify.com/v1/artists/${id}/top-tracks/?market=BR`,
-            headers: {
-                Authorization: `Bearer ${import.meta.env.VITE_API_LEARNING_TOKEN}`,
-            },
-        });
+        const response = await axiosInstance.get(`artists/${id}/top-tracks/?market=BR`);
 
         setTracks({
             topTracks: response.data.tracks,
