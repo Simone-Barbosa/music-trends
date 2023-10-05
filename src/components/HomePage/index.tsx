@@ -28,7 +28,7 @@ export default function HomePage() {
     }
 
     useEffect(() => {
-        getToken(); //para teste
+        // getToken(); // para verificar requisiçao do token
         getArtists();
     }, []);
 
