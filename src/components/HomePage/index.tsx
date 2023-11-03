@@ -4,7 +4,7 @@ import './home-page.css';
 import { useNavigate } from 'react-router-dom';
 import { usePreferencesUser } from '../../context/userPreferences.context';
 import { getStyleMode } from '../../shared/colors';
-import { axiosInstance, getToken } from '../../axios';
+import { axiosInstance } from '../../axios';
 
 interface Artist {
     id: string;
@@ -28,7 +28,6 @@ export default function HomePage() {
     }
 
     useEffect(() => {
-        // getToken(); // para verificar requisiçao do token
         getArtists();
     }, []);
 
@@ -39,16 +38,22 @@ export default function HomePage() {
     const { darkMode } = usePreferencesUser();
 
     return (
-        <section
-            className="cardBandsSection"
-            style={{
-                background: getStyleMode(darkMode, 'background_music_trends'),
-                color: getStyleMode(darkMode, 'font_color_music_trends'),
-            }}
-        >
-            {artists.map((artist) => {
-                return <CardBand key={artist.id} name={artist.name} genres={artist.genres} backgroundImage={artist.images[1].url} onClick={() => clickCardBand(artist.id)} />;
-            })}
-        </section>
+        <>
+            <div className="homePageStart">
+                <h3>Music Trends</h3>
+                <h4> Here we will have the Music Trends Introduction </h4>
+            </div>
+            <section
+                className="cardBandsSection"
+                style={{
+                    background: getStyleMode(darkMode, 'background_music_trends'),
+                    color: getStyleMode(darkMode, 'font_color_music_trends'),
+                }}
+            >
+                {artists.map((artist) => {
+                    return <CardBand key={artist.id} name={artist.name} genres={artist.genres} backgroundImage={artist.images[1].url} onClick={() => clickCardBand(artist.id)} />;
+                })}
+            </section>
+        </>
     );
 }

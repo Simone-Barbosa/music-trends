@@ -1,3 +1,13 @@
+.homePageStart {
+    height: 50vh;
+    background-color: gray;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+}
+
 .cardBandsSection {
     display: grid;
     grid-template-columns: repeat(5, auto);
