@@ -4,11 +4,11 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    /* background-color: blue; */
 }
 
 .container h1 {
-    background-color: slategrey;
+    margin-bottom:10px;
+    font-size: 45px;
 }
 
 .loadingPage {
@@ -21,10 +21,11 @@
 .containerArtist {
     /* background-color: brown; */
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 40% 60%;
     max-width: 100%;
     text-align: center;
     padding: 20px;
+    font-size: 25px;
 }
 
 .containerPhoto {
@@ -37,55 +38,82 @@
     max-width: 100%;
     max-height: 100%;
     margin-top: 30px;
+    border-radius: 50%;
 }
 
 .containerData {
     /* background-color: aquamarine; */
     max-width: 100%;
     padding: 10px;
+    display: grid;
+    grid-template-rows: repeat(3);
+    align-items: center;
 }
 
 .containerData h2 {
-    color: cadetblue;
     font-size: 25px;
 }
 
 .cardDataArtist {
-    font-size: 18px;
-    max-width: 300px;
-    min-height: 80px;
+    font-size: 20px;
+    min-width: 80%;
+    min-height: 50%;
     margin-top: 30px;
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 10px;
-    background-size: cover;
+    border-radius: 5%;
+    /* background-size: cover; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .containerMusics {
     /* background-color: green; */
     max-width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 300px);
-    justify-content: space-around;
     padding: 10px;
+}
+
+.containerMusics h1{
+    text-align: left;
 }
 
 .cardTracks {
     border-radius: 10px;
-    max-width: 95%;
-    min-height: 250px;
-    text-align: center;
+    max-width: 100%;
+    min-height: 70px;
     margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: 40% 15% 15% 15% 15%;
+    align-items: center;
 }
 
-.cardTracks h4 {
-    color: cadetblue;
-    font-size: 25px;
+.cardTracks div {
+    display: grid;
+    grid-template-columns: 5% 15% 80%;
+    align-items: center;
 }
 
 .cardTracks p {
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.cardTracksTitle{
+    border-radius: 10px;
+    max-width: 100%;
+    min-height: 50px;
+    margin-bottom:25px;
+    display: grid;
+    grid-template-columns: 40% 15% 15% 15% 15%;
+    align-items: center;
+    font-size: 25px;
+}
+
+.cardTracksTitle div {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
 }
 
 @media screen and (max-width: 1500px) {

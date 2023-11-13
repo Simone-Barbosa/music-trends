@@ -1,12 +1,17 @@
 .homePageStart {
     height: 50vh;
-    background-color: gray;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
     gap: 60px;
+    font-size: 40px;
+    color: white;
+    background-image: url('https://www.vilage.com.br/blog/wp-content/uploads/2021/04/como-registrar-uma-musica.png');   
+    background-size: 100%;
 }
+
+
 
 .cardBandsSection {
     display: grid;

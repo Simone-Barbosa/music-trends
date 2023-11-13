@@ -21,9 +21,11 @@ interface ArtistTracksProps {
     topTracks: {
         name: string;
         popularity: number;
+        duration_ms: number;
         album: {
             name: string;
             release_date: string;
+            images: any;
         };
     }[];
 }
@@ -73,10 +75,9 @@ export default function ArtistPage() {
                         color: getStyleMode(darkMode, 'font_color_music_trends'),
                     }}
                 >
-                    <h1>{artist.name}</h1>
-
                     <div className="containerArtist">
                         <div className="containerPhoto">
+                            <h1>{artist.name}</h1>
                             <img src={artist?.artistPhoto.url} />
                         </div>
 
@@ -88,7 +89,7 @@ export default function ArtistPage() {
                                     border: getStyleMode(darkMode, 'border_card_band'),
                                 }}
                             >
-                                <h2> Polularidade</h2>
+                                <h2> Polularity</h2>
                                 <p> {artist?.popularity} </p>
                             </div>
 
@@ -99,7 +100,7 @@ export default function ArtistPage() {
                                     border: getStyleMode(darkMode, 'border_card_band'),
                                 }}
                             >
-                                <h2>Seguidores</h2>
+                                <h2>Followers</h2>
                                 <p>{artist?.totalFollowers}</p>
                             </div>
 
@@ -110,20 +111,37 @@ export default function ArtistPage() {
                                     border: getStyleMode(darkMode, 'border_card_band'),
                                 }}
                             >
-                                <h2>Gênero musical</h2>
+                                <h2>Musical Genres</h2>
                                 <p>
                                     {artist?.genres.map((genre) => {
-                                        return <span> {genre} , </span>;
+                                        return <p> {genre} </p>;
                                     })}
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <h1>Top Músicas</h1>
-
                     <div className="containerMusics">
-                        {tracks?.topTracks.map((track) => {
+                        <h1>Top Tracks</h1>
+                        <div
+                            className="cardTracksTitle"
+                            style={{
+                                background: getStyleMode(darkMode, 'background_card_band'),
+                                border: getStyleMode(darkMode, 'border_card_band'),
+                            }}
+                        >
+                            <div>
+                                <p></p>
+                                <p> Music </p>
+                            </div>
+
+                            <p> Album </p>
+                            <p> Release </p>
+                            <p> Duration </p>
+                            <p> Popularity </p>
+                        </div>
+
+                        {tracks?.topTracks.map((track, index) => {
                             return (
                                 <div
                                     className="cardTracks"
@@ -133,10 +151,15 @@ export default function ArtistPage() {
                                     }}
                                     key={track.name}
                                 >
-                                    <h4>{track.name}</h4>
-                                    <p>Rank: {track.popularity}</p>
-                                    <p> Album: {track.album.name}</p>
-                                    <p> Lançado: {track.album.release_date}</p>
+                                    <div>
+                                        <p> {index + 1} </p>
+                                        <img src={track.album.images[2].url} />
+                                        <p>{track.name}</p>
+                                    </div>
+                                    <p> {track.album.name}</p>
+                                    <p> {track.album.release_date}</p>
+                                    <p> {track.duration_ms}</p>
+                                    <p> {track.popularity}</p>
                                 </div>
                             );
                         })}
