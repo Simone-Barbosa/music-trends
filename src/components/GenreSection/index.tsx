@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { axiosInstance } from "../../axios";
-import { getStyleMode } from "../../shared/colors";
-import CardBand from "../CardBand";
-import { usePreferencesUser } from "../../context/userPreferences.context";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { axiosInstance } from '../../axios';
+import { getStyleMode } from '../../shared/colors';
+import CardBand from '../CardBand';
+import { usePreferencesUser } from '../../context/userPreferences.context';
 
 interface Artist {
     id: string;
@@ -22,7 +22,7 @@ interface GenreSectionProps {
     title: string;
 }
 
-export default function GenreSection({genre,title}:GenreSectionProps) {
+export default function GenreSection({ genre, title }: GenreSectionProps) {
     const [artists, setArtists] = useState<Artist[]>([]);
     const navigate = useNavigate();
     //genre composto: power%20metal / hard%20rock
@@ -51,11 +51,10 @@ export default function GenreSection({genre,title}:GenreSectionProps) {
                     color: getStyleMode(darkMode, 'font_color_music_trends'),
                 }}
             >
-                {artists.slice(0,5).map((artist) => {
+                {artists.slice(0, 5).map((artist) => {
                     return <CardBand key={artist.id} name={artist.name} genres={artist.genres} backgroundImage={artist.images[1].url} onClick={() => clickCardBand(artist.id)} />;
                 })}
             </section>
-            ;
         </>
     );
 }

@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import { usePreferencesUser } from '../../context/userPreferences.context';
 import { getStyleMode } from '../../shared/colors';
 import { axiosInstance } from '../../axios';
+import { Progress } from 'antd';
+
+const twoColors = { '0%': '#108ee9', '100%': '#4B0082' };
 
 interface ArtistProps {
     name: string;
@@ -82,35 +85,17 @@ export default function ArtistPage() {
                         </div>
 
                         <div className="containerData">
-                            <div
-                                className="cardDataArtist"
-                                style={{
-                                    background: getStyleMode(darkMode, 'background_card_band'),
-                                    border: getStyleMode(darkMode, 'border_card_band'),
-                                }}
-                            >
+                            <div className="cardDataArtist">
                                 <h2> Polularity</h2>
-                                <p> {artist?.popularity} </p>
+                                <Progress type="dashboard" percent={artist?.popularity} strokeColor={twoColors} strokeWidth={20} trailColor="Silver" />
                             </div>
 
-                            <div
-                                className="cardDataArtist"
-                                style={{
-                                    background: getStyleMode(darkMode, 'background_card_band'),
-                                    border: getStyleMode(darkMode, 'border_card_band'),
-                                }}
-                            >
+                            <div className="cardDataArtist">
                                 <h2>Followers</h2>
                                 <p>{artist?.totalFollowers}</p>
                             </div>
 
-                            <div
-                                className="cardDataArtist"
-                                style={{
-                                    background: getStyleMode(darkMode, 'background_card_band'),
-                                    border: getStyleMode(darkMode, 'border_card_band'),
-                                }}
-                            >
+                            <div className="cardDataArtist">
                                 <h2>Musical Genres</h2>
                                 <p>
                                     {artist?.genres.map((genre) => {
@@ -120,7 +105,6 @@ export default function ArtistPage() {
                             </div>
                         </div>
                     </div>
-
                     <div className="containerMusics">
                         <h1>Top Tracks</h1>
                         <div
@@ -159,7 +143,7 @@ export default function ArtistPage() {
                                     <p> {track.album.name}</p>
                                     <p> {track.album.release_date}</p>
                                     <p> {track.duration_ms}</p>
-                                    <p> {track.popularity}</p>
+                                    <Progress steps={10} percent={track.popularity} size={10} showInfo={false} trailColor="graySilver" />
                                 </div>
                             );
                         })}

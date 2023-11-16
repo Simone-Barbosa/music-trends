@@ -16,7 +16,7 @@ export default function CardBand({ genres, name, backgroundImage, onClick }: Car
             onClick={onClick}
         >
 
-            <img style={{borderRadius: '50%'}} src={backgroundImage} alt={`${name} cover`} width={'90%'} height={'60%'} />
+            <img style={{borderRadius: '50%'}} src={backgroundImage} alt={`${name} cover`} width={'100%'} />
             <p> {name}</p>
 
             <p>
