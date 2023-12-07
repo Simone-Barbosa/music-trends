@@ -1,22 +1,30 @@
-import { Checkbox, Modal } from "antd";
+import { Button, Checkbox, Modal } from "antd";
 import { CheckboxValueType } from "antd/es/checkbox/Group";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { listOfGenres } from "../../shared/genres";
+import { setUserPreferences } from "../../shared/local-storage";
 
 interface ModalPreferencesProps {
     open: boolean;
+    showButton: boolean;
+    modalText: string;
 }
 
-export default function ModalPreferences({ open }: ModalPreferencesProps) {
+export default function ModalPreferences({ open, showButton, modalText}: ModalPreferencesProps) {
     const [isModalOpen, setIsModalOpen] = useState(open);
     const [checkedValues, setCheckedValues] = useState<CheckboxValueType[]>([]);
+
+    useEffect(()=>{
+        // console.log('alterou o estado para =', isModalOpen);
+    }, [isModalOpen])
 
     const showModal = () => {
         setIsModalOpen(true);
     };
 
     const handleOk = () => {
-        setIsModalOpen(false);
+       setIsModalOpen(false);
+       setUserPreferences(checkedValues);
     };
 
     const handleCancel = () => {
@@ -24,17 +32,21 @@ export default function ModalPreferences({ open }: ModalPreferencesProps) {
     };
 
     const onChange = (checkedValues: CheckboxValueType[]) => {
-        console.log('checked = ', checkedValues);
         setCheckedValues(checkedValues);
     };
 
 
     return (
         <>
-            <Modal title="Select your favority genres" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+            {showButton && (
+                <Button type="primary" onClick={() => showModal()}>
+                    Set Preferences
+                </Button>
+            )}
+
+            <Modal title={modalText} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <Checkbox.Group options={listOfGenres} onChange={onChange} />
             </Modal>
-
         </>
     );
 }

@@ -3,9 +3,9 @@ import ModalPreferences from '../ModalPreferences';
 import { getUserPreferences } from '../../shared/local-storage';
 import GenreSection from '../GenreSection';
 import { listOfGenres } from '../../shared/genres';
+import { useEffect } from 'react';
 
 export default function HomePage() {
-
     const userPreferences = getUserPreferences() as string[];
 
     function checkUserPreferences() {
@@ -13,6 +13,8 @@ export default function HomePage() {
 
         return true;
     }
+
+    // useEffect(() => {}, [userPreferences]);
 
     return (
         <>
@@ -26,7 +28,7 @@ export default function HomePage() {
                 return <GenreSection genre={selectedGenre as string} title={genreLabel} />;
             })}
 
-            <ModalPreferences open={checkUserPreferences()} />
+            <ModalPreferences open={checkUserPreferences()} showButton={false} modalText="Welcome to music trends! Select your favorite genres:" />
         </>
     );
 }
