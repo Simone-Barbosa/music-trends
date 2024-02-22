@@ -1,7 +1,7 @@
 import { CheckboxValueType } from "antd/es/checkbox/Group";
 
 export const getUserPreferences = () => {
-    if (localStorage.getItem('userPreferences')) return localStorage.getItem('userPreferences')?.split(',');
+    if (localStorage.getItem('userPreferences')) return localStorage.getItem('userPreferences')?.split(',') as string[];
 
     return [];
 };

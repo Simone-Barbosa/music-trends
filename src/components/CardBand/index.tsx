@@ -22,7 +22,7 @@ export default function CardBand({ genres, name, backgroundImage, onClick }: Car
             <p>
                 {limitedGenre.map((genre) => {
                     return (
-                        <span>
+                        <span key={'genre-'+ genre}>
                             {genre} <br />
                         </span>
                     );

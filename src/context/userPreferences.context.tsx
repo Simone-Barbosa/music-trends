@@ -22,6 +22,8 @@ function checkStyleModeLocalStorage(): DarkMode {
 export default function UserPreferencesProvider({ children }: any) {
     const [darkMode, setDarkMode] = useState<DarkMode>(checkStyleModeLocalStorage());
 
+    // const [userPreferences, setUserPreferences] = useState({ darkMode: checkStyleModeLocalStorage(), genres:[] }); // refatorar usando este modelo
+
     return <UserPreferencesContext.Provider value={{ darkMode, setDarkMode }}>{children}</UserPreferencesContext.Provider>;
 }
 
@@ -29,3 +31,4 @@ export function usePreferencesUser() {
     const { darkMode, setDarkMode } = useContext(UserPreferencesContext);
     return { darkMode, setDarkMode };
 }
+
