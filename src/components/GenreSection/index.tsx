@@ -58,6 +58,3 @@ export default function GenreSection({ genre, title }: GenreSectionProps) {
         </>
     );
 }
-
-
-// code review

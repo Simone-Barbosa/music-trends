@@ -27,5 +27,3 @@ export default function CardBand({ genres, name, backgroundImage, onClick }: Car
         </div>
     );
 }
-
-// code review
