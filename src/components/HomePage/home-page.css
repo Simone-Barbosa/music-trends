@@ -51,3 +51,8 @@
         grid-template-columns: repeat(1, auto);
     }
 }
+
+
+.hide{
+    display: none;
+}

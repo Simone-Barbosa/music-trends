@@ -11,18 +11,14 @@ export default function CardBand({ genres, name, backgroundImage, onClick }: Car
     const limitedGenre = genres.slice(0, 1);
 
     return (
-        <div
-            className="cardBox"
-            onClick={onClick}
-        >
-
-            <img style={{borderRadius: '50%'}} src={backgroundImage} alt={`${name} cover`} width={'100%'} />
+        <div className="cardBox" onClick={onClick}>
+            <img style={{ borderRadius: '50%' }} src={backgroundImage} alt={`${name} cover`} width={'100%'} />
             <p> {name}</p>
 
             <p>
                 {limitedGenre.map((genre) => {
                     return (
-                        <span key={'genre-'+ genre}>
+                        <span key={'genre-' + genre}>
                             {genre} <br />
                         </span>
                     );
