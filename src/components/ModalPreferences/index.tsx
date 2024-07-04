@@ -8,10 +8,9 @@ interface ModalPreferencesProps {
     open: boolean;
     showButton: boolean;
     modalText: string;
-    executaFuncao?: (texto: string)=> void;
 }
 
-export default function ModalPreferences({ open, showButton, modalText, executaFuncao }: ModalPreferencesProps) {
+export default function ModalPreferences({ open, showButton, modalText }: ModalPreferencesProps) {
     const [isModalOpen, setIsModalOpen] = useState(open);
     const [checkedValues, setCheckedValues] = useState<CheckboxValueType[]>([]);
 
@@ -31,10 +30,9 @@ export default function ModalPreferences({ open, showButton, modalText, executaF
     const handleOk = () => {
         setIsModalOpen(false);
         setUserPreferences(checkedValues);
-        // if (window.location.pathname === '/') {
-        //     location.reload();
-        // }
-
+        if (window.location.pathname === '/') { // migrar para o contexto
+            location.reload();
+        }
     };
 
     const handleCancel = () => {
@@ -44,8 +42,6 @@ export default function ModalPreferences({ open, showButton, modalText, executaF
     const onChange = (checkedValues: CheckboxValueType[]) => {
         setCheckedValues(checkedValues);
     };
-
-    console.log('checked = ', checkedValues);
 
     return (
         <>
@@ -57,7 +53,6 @@ export default function ModalPreferences({ open, showButton, modalText, executaF
 
             <Modal title={modalText} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <Checkbox.Group options={listOfGenres} onChange={onChange} defaultValue={checkedValues} />
-                <button onClick={()=>{executaFuncao('QUALQUER TEXTO')}}>Executa função </button>
             </Modal>
         </>
     );

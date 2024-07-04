@@ -1,6 +1,7 @@
 import { usePreferencesUser } from '../../context/userPreferences.context';
 import { getStyleMode } from '../../shared/colors';
 import './about-page-styles.css';
+import { urlImageAbout } from '../../service';
 
 export default function PageAbout() {
     const { darkMode } = usePreferencesUser();
@@ -14,7 +15,7 @@ export default function PageAbout() {
             }}
         >
             <div>
-                <img className="Image" src={'https://www.vilage.com.br/blog/wp-content/uploads/2021/04/como-registrar-uma-musica.png'} />
+                <img className="Image" src={urlImageAbout} />
             </div>
 
             <div className="boxAbout">
